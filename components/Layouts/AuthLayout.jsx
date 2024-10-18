@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../Elements/Logo";
-import LabeledInput from "../Elements/LabeledInput";
+import LabeledInput from "../Elements/LabeledInput/Index"; // wkkwkwkkkwkkwkwkkwkwkkwkwkk 
 
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
