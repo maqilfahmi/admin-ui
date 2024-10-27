@@ -1,10 +1,10 @@
-import React from "react";
 import Logo from "../Elements/Logo";
-import LabeledInput from "../Elements/LabeledInput/Index"; // wkkwkwkkkwkkwkwkkwkwkkwkwkk 
 
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
-const AuthLayout = () => {
+const AuthLayout = (props) => {
+  const { children, type } = props; // Pastikan untuk mendapatkan `type` dari props
+
   return (
     <div className="flex justify-center min-h-screen items-center bg-special-mainBg">
       {/* container start */}
@@ -13,29 +13,9 @@ const AuthLayout = () => {
         <Logo />
         {/* logo end */}
         {/* form start */}
-        <div className="mt-16">
-          <form action="">
-            <div className="mb-6">
-              <LabeledInput
-                type="email"
-                labelText="Email Address"
-                placeholder="hello@example.com"
-                name="email"
-                id="email"
-              />
-            </div>
-            <div className="mb-6">
-              <LabeledInput
-                type="password"
-                labelText="Password"
-                placeholder="************"
-                name="password"
-                id="password"
-              />
-            </div>
-
-            {/* Link Forgot Password */}
-            <div className="flex justify-end mb-6">
+        <div className="mt-16">{children}</div>
+          {/* Link Forgot Password */}
+          <div className="flex justify-end mb-6">
               <Link
                 to="/forgot-password"
                 className="text-primary text-sm font-bold"
@@ -43,34 +23,12 @@ const AuthLayout = () => {
                 Forgot Password?
               </Link>
             </div>
-
-            <div className="mb-3">
-              <input
-                type="checkbox"
-                className="text-sm accent-primary"
-                name="status"
-                id="status"
-              />
-              <label htmlFor="status" className="text-sm text-gray-01 ms-6">
-                Keep me signed in
-              </label>
-            </div>
-            <button
-              className="h-12 rounded-md text-sm bg-primary w-full text-white"
-              type="submit"
-            >
-              Login
-            </button>
-          </form>
-        </div>
         {/* form end */}
+        
         {/* teks start */}
         <div className="my-9 px-7 flex justify-center text-xs text-gray-03 items-center flex-col static">
           <div className="border border-gray-05 w-full"></div>
-          <div className="px-2 bg-special-mainBg absolute">
-            {" "}
-            or sign in with
-          </div>
+          <div className="px-2 bg-special-mainBg absolute"> or sign in with</div>
         </div>
         {/* teks end */}
         {/* sign in with google start */}
@@ -90,13 +48,13 @@ const AuthLayout = () => {
             >
               <title>Google-color</title>
               <desc>Created with Sketch.</desc>
-              <defs> </defs>
+              <defs></defs>
               <g
                 id="Icons"
                 stroke="none"
-                strokeWidth="1"
+                strokeWidth="1" // Perbaiki di sini
                 fill="none"
-                fillRule="evenodd"
+                fillRule="evenodd" // Perbaiki di sini
               >
                 <g id="Color-" transform="translate(-401.000000, -860.000000)">
                   <g id="Google" transform="translate(401.000000, 860.000000)">
@@ -130,11 +88,23 @@ const AuthLayout = () => {
         {/* sign in with google end */}
         {/* link start */}
         <div className="flex justify-center">
-          <a className="text-primary text-sm font-bold">Create an account</a>
+          {type === "sign up" ? ( // Pastikan membandingkan dengan '==='
+            <>
+              <span className="text-sm text-gray-03">
+                Already have an account?&nbsp;
+              </span>
+              <Link to="/login"className="text-primary text-sm font-bold">
+                Sign In Here
+              </Link>
+            </>
+          ) : (
+            <Link to="/register" className="text-primary text-sm font-bold">
+              Create an account
+            </Link>
+          )}
         </div>
         {/* link end */}
       </div>
-      {/* container end */}
     </div>
   );
 };

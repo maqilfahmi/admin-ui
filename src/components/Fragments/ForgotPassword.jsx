@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../Elements/Logo";
-import LabeledInput from "../Elements/LabeledInput/Index";
+import LabeledInput from "../Elements/LabeledInput";
 import Button from "../Elements/Button";
 import { Link } from "react-router-dom"; // Assuming you're using react-router
 
