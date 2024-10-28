@@ -27,7 +27,7 @@ export default {
       }
     },
       fontFamily: {
-        body: ['Dancing Script'],
+        body: ['Poppins'],
         poppins: ['Poppins'],
       }
     

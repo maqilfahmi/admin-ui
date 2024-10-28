@@ -6,6 +6,7 @@ import ForgotPassword from "./components/Fragments/ForgotPassword";
 import ErrorRoute from "./pages/errorRoute";
 import DashboardPage from "./pages/dashboard";
 import BalancePage from "./pages/balance";
+import Navbar from "./components/Fragments/Navbar";
 
 const App = () => {
   const myRouter = createBrowserRouter([

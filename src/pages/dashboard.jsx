@@ -8,27 +8,27 @@ const DashboardPage = () => {
 <main className="px-6 py-4">
   {/* top content start*/}
   <div className="mb-4 sm:flex sm:gap-6">
-    <div className="mb-4 sm:w-1/3">
+    <div className="mb-4 sm:w-1/4">
       <Card/>
     </div>
-    <div className="mb-4 sm:w-1/3">
+    <div className="mb-4 sm:w-1/4">
       <Card/>
     </div>
-    <div className="mb-4 sm:w-1/3">
+    <div className="mb-4 sm:w-1/4">
      <Card/>
     </div>
   </div>
   {/* top content end*/}
   {/* bottom content start*/}
   <div className="sm:flex sm:gap-6">
-    <div className="mb-4 sm:w-1/3">
+    <div className="mb-4 sm:w-1/4">
      <Card/>
     </div>
-    <div className="sm:w-2/3">
-      <div className="mb-4">
+    <div className="mb-4 sm:w-2/4">
+      <div className="mb-4 sm:w-1/2" >
         <Card/>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 sm:w-1/2">
         <Card/>
       </div>
     </div>
