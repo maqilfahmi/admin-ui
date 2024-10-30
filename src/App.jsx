@@ -6,15 +6,15 @@ import ForgotPassword from "./components/Fragments/ForgotPassword";
 import ErrorRoute from "./pages/errorRoute";
 import DashboardPage from "./pages/dashboard";
 import BalancePage from "./pages/balance";
-import Navbar from "./components/Fragments/Navbar";
 
 const App = () => {
   const myRouter = createBrowserRouter([
-    {
-      path: "/",
+	{
+	  path: "/",
       element: <DashboardPage/>,
 	  errorElement: <ErrorRoute/>,
-    },
+
+	},
 	{
 		path: "/login",
 		element: <SignInPage/>,
@@ -29,9 +29,9 @@ const App = () => {
 	},
 	{
 		path: "/balance",
-		element: <BalancePage /> ,
-	},
-	
+		element: <BalancePage/>,
+  
+	  },
 	]);
 
   return (

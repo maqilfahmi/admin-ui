@@ -1,4 +1,6 @@
 import Logo from "../Elements/Logo";
+import FormSignIn from "../Fragments/FormSignIn";
+import FormSignUp from "../Fragments/FormSignUp";
 
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
@@ -24,7 +26,6 @@ const AuthLayout = (props) => {
               </Link>
             </div>
         {/* form end */}
-        
         {/* teks start */}
         <div className="my-9 px-7 flex justify-center text-xs text-gray-03 items-center flex-col static">
           <div className="border border-gray-05 w-full"></div>
