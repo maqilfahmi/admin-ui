@@ -1,6 +1,5 @@
-import React from 'react';
-import FormSignIn from "../components/Fragments/FormSignIn"; // Pastikan ini benar
-import AuthLayout from "../components/Layouts/AuthLayout"; // Pastikan ini sesuai
+import FormSignIn from "../components/Fragments/FormSignIn";
+import AuthLayout from "../components/Layouts/AuthLayout";
 
 const SignInPage = () => {
   return (
