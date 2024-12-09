@@ -3,13 +3,14 @@ import MainLayout from "../components/Layouts/MainLayout";
 import CardBill from "../components/Fragments/dashboard/CardBill2";
 import CardExpenseBreakdown from "../components/Fragments/dashboard/CardExpenseBreakdown2";
 import CardTransaction from "../components/Fragments/dashboard/CardTransaction2.jsx";
+import CardBalance from "../components/Fragments/dashboard/CardBalance";
 
 const DashboardPage = () => {
   return (
     <MainLayout type="dashboard">
       {/* top content start*/}
       <div className="md:grid md:grid-cols-3 md:gap-x-6">
-        <Card title="Total Balance" />
+        <CardBalance />
         <Card title="Goals" />
         <CardBill />
         <CardTransaction />
