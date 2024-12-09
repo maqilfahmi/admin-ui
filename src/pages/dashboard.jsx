@@ -4,6 +4,8 @@ import CardBill from "../components/Fragments/dashboard/CardBill2";
 import CardExpenseBreakdown from "../components/Fragments/dashboard/CardExpenseBreakdown2";
 import CardTransaction from "../components/Fragments/dashboard/CardTransaction2.jsx";
 import CardBalance from "../components/Fragments/dashboard/CardBalance";
+import CardStatistic from "../components/Fragments/dashboard/CardStatistic";
+import CardGoal from "../components/Fragments/dashboard/CardGoal";
 
 const DashboardPage = () => {
   return (
@@ -11,10 +13,10 @@ const DashboardPage = () => {
       {/* top content start*/}
       <div className="md:grid md:grid-cols-3 md:gap-x-6">
         <CardBalance />
-        <Card title="Goals" />
+        <CardGoal/>
         <CardBill />
         <CardTransaction />
-        <Card variant="md:col-span-2" title="Statistics" />
+        <CardStatistic/>
         <CardExpenseBreakdown />
       </div>
       {/* bottom content end*/}
