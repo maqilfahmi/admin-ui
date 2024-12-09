@@ -1,6 +1,7 @@
 import bills from "../../../data/bills";
 import Card from "../../Elements/Card";
 
+
 const CardBill = () => {
     const billCard = bills.map((bill) => (
         <div key={bill.id} className="lg:flex justify-between pt-3 pb-3">
