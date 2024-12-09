@@ -7,12 +7,10 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 const Stepper = (props) => {
-    const { desc } = props; // desc adalah array berisi deskripsi tiap langkah
+    const { desc } = props;
+
     const theme = useTheme();
     const [activeStep, setActiveStep] = useState(0);
-
-    // Mendapatkan jumlah langkah dari panjang array desc
-    const dataNum = desc.length;
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -22,48 +20,49 @@ const Stepper = (props) => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
+    const dataNum = desc.length;
+
     return (
         <>
-            <div>{desc[activeStep]}</div>
-            <MobileStepper
-                variant="dots"
-                steps={dataNum}
-                position="static"
-                activeStep={activeStep}
+        <div>{desc[activeStep]}</div>    
+        <MobileStepper
+            variant="dots"
+            steps={dataNum}
+            position="static"
+            activeStep={activeStep}
             sx={{
-    maxWidth: "100%",
-    flexGrow: 1,
-    "& .MuiMobileStepper-dot": {
-        backgroundColor: "darkgray",
-    },
-    "& .MuiMobileStepper-dotActive": {
-        backgroundColor: "#299091",
-    },
-}}
-
-                nextButton={
-                    <Button size="small" onClick={handleNext} disabled={activeStep === dataNum - 1}>
-                        Next
-                        {theme.direction === 'rtl' ? (
-                            <KeyboardArrowLeft />
-                        ) : (
-                            <KeyboardArrowRight />
-                        )}
-                    </Button>
-                }
-                backButton={
-                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                        {theme.direction === 'rtl' ? (
-                            <KeyboardArrowRight />
-                        ) : (
-                            <KeyboardArrowLeft />
-                        )}
-                        Back
-                    </Button>
-                }
-            />
+                maxWidth: "100%",
+                flexGrow: 1,
+                "& .MuiMobileStepper-dot": {
+                    backgroundColor: "darkgray",
+                },
+                "& .MuiMobileStepper-dotActive": {
+                    backgroundColor: "#299D91",
+                },
+                }}
+            nextButton={
+                <Button size="small" onClick={handleNext} sx={{color: "black", fontWeight: "bold"}} disabled={activeStep === dataNum -1}>
+                    Next
+                    {theme.direction === 'rtl' ? (
+                        <KeyboardArrowLeft />
+                    ) : (
+                        <KeyboardArrowRight />
+                    )}
+                </Button>
+            }
+            backButton={
+                <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                    {theme.direction === 'rtl' ? (
+                        <KeyboardArrowRight />
+                    ) : (
+                        <KeyboardArrowLeft />
+                    )}
+                    Previous
+                </Button>
+            }
+        />
         </>
     );
-};
+}
 
-export default Stepper;
+export default Stepper

@@ -1,61 +1,62 @@
-export const expensesBreakdowns = [
-  {
-    id: 1,
-    category: "Housing",
-    amount: 250,
-    percentage: 15,
-    // icon: <Icon.Housing />,
-    // arrow: <Icon.ArrowDown />,
-  },
-  {
-    id: 2,
-    category: "Food",
-    amount: 350,
-    percentage: 8,
-    // icon: <Icon.Food />,
-    // arrow: <Icon.ArrowUp />,
-  },
-  {
-    id: 3,
-    category: "Transportation",
-    amount: 50,
-    percentage: 12,
-    // icon: <Icon.Transportation />,
-    // arrow: <Icon.ArrowUp />,
-  },
-  {
-    id: 4,
-    category: "Entertainment",
-    amount: 80,
-    percentage: 15,
-    // icon: <Icon.Entertainment />,
-    // arrow: <Icon.ArrowUp />,
-  },
-  {
-    id: 5,
-    category: "Shopping",
-    amount: 420,
-    percentage: 25,
-    // icon: <Icon.Shopping />,
-    // arrow: <Icon.ArrowDown />,
-  },
-  {
-    id: 6,
-    category: "Others",
-    amount: 650,
-    percentage: 23,
-    // icon: <Icon.Others />,
-    // arrow: <Icon.ArrowDown />,
-  },
-];
 
-export const expensesStatistics = {
-  dataKey: "date",
-  series: [
-    { dataKey: "amountThisWeek", label: "This Week", color: "#E8E8E8" },
-    { dataKey: "amountLastWeek", label: "Last Week", color: "#299D91" },
-  ],
-  data: [
+export const expensesBreakdowns = [
+    {
+      id: 1,
+      category: "Housing",
+      amount: 250,
+      percentage: 15,
+      // icon: <Icon.Housing />,
+      // arrow: <Icon.ArrowDown />,
+    },
+    {
+      id: 2,
+      category: "Food",
+      amount: 350,
+      percentage: 8,
+      // icon: <Icon.Food />,
+      // arrow: <Icon.ArrowUp />,
+    },
+    {
+      id: 3,
+      category: "Transportation",
+      amount: 50,
+      percentage: 12,
+      // icon: <Icon.Transportation />,
+      // arrow: <Icon.ArrowUp />,
+    },
+    {
+      id: 4,
+      category: "Entertainment",
+      amount: 80,
+      percentage: 15,
+      // icon: <Icon.Entertainment />,
+      // arrow: <Icon.ArrowUp />,
+    },
+    {
+      id: 5,
+      category: "Shopping",
+      amount: 420,
+      percentage: 25,
+      // icon: <Icon.Shopping />,
+      // arrow: <Icon.ArrowDown />,
+    },
+    {
+      id: 6,
+      category: "Others",
+      amount: 650,
+      percentage: 23,
+      // icon: <Icon.Others />,
+      // arrow: <Icon.ArrowDown />,
+    },
+  ];
+  
+  export const expensesStatistics = {
+    dataKey: "date",
+    series: [
+      { dataKey: "amountThisWeek", label: "This Week", color: "#E8E8E8" },
+      { dataKey: "amountLastWeek", label: "Last Week", color: "#299D91" },
+    ],
+    data: [
     {
       id: 1,
       date: "17 Sun",
@@ -100,4 +101,5 @@ export const expensesStatistics = {
     },
   ]
 };
-export default expensesBreakdowns;
+  
+  export default expensesBreakdowns;

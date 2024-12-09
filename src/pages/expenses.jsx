@@ -1,53 +1,63 @@
-import React from 'react'
-import Card from '../components/Elements/Card';
-import MainLayout from '../components/Layouts/MainLayout';
-import { Container, Row, Col } from 'react-bootstrap';
-    
+import React from 'react';
+import CardE from '../components/Elements/Card/indexExpenses';
+import MainLayout from "../components/Layouts/MainLayout";
+
 const ExpensesPage = () => {
-  return (
-    <MainLayout type="expenses">
-      <Container className="mt-4">
+    return (
+        <MainLayout type="balance">
 
-        {/* Expenses Comparison Section */}
-        <div className="expenses-comparison mb-4">
-          <h5>Expenses Comparison</h5>
-          <Row>
-            <Col>
-              <Card
-                title="Comparison Data"
-                content="Lorem ipsum dolor sit amet consectetur adipiscing elit. Magni neque quam alias enim ullam deserunt ducimus consequatur cumque hic voluptatem totam ab quibusdam facilis distinctio ratione, sequi vel porro eum."
-              />
-            </Col>
-          </Row>
-        </div>
+            {/* Expenses Comparison */}
+            <div className="mb-6">
+                <h2 className="text-lg font-medium mb-2">Expenses Comparison</h2>
+                <CardE>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+                </CardE>
+            </div>
 
-        {/* Expenses Breakdown Section */}
-        <div className="expenses-breakdown">
-          <h5>Expenses Breakdown</h5>
-          <Row className="g-3">
-            <Col md={4} className="expense-card">
-              <Card title="Expense 1" content="Lorem ipsum dolor sit amet consectetur adipiscing elit. Magni neque quam alias enim ullam deserunt ducimus." />
-            </Col>
-            <Col md={4} className="expense-card">
-              <Card title="Expense 2" content="Lorem ipsum dolor sit amet consectetur adipiscing elit. Magni neque quam alias enim ullam deserunt ducimus." />
-            </Col>
-            <Col md={4} className="expense-card">
-              <Card title="Expense 3" content="Lorem ipsum dolor sit amet consectetur adipiscing elit. Magni neque quam alias enim ullam deserunt ducimus." />
-            </Col>
-            <Col md={4} className="expense-card">
-              <Card title="Expense 4" content="Lorem ipsum dolor sit amet consectetur adipiscing elit. Magni neque quam alias enim ullam deserunt ducimus." />
-            </Col>
-            <Col md={4} className="expense-card">
-              <Card title="Expense 5" content="Lorem ipsum dolor sit amet consectetur adipiscing elit. Magni neque quam alias enim ullam deserunt ducimus." />
-            </Col>
-            <Col md={4} className="expense-card">
-              <Card title="Expense 6" content="Lorem ipsum dolor sit amet consectetur adipiscing elit. Magni neque quam alias enim ullam deserunt ducimus." />
-            </Col>
-          </Row>
-        </div>
-      </Container>
-    </MainLayout>
-  );
+            {/* Expenses Breakdown */}
+            <div>
+                <h2 className="text-lg font-medium mb-2">Expenses Breakdown</h2>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <CardE>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                    </CardE>
+                    <CardE>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                    </CardE>
+                    <CardE>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                    </CardE>
+                    <CardE>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                    </CardE>
+                    <CardE>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                    </CardE>
+                    <CardE>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident</p>
+                    </CardE>
+                </div>
+            </div>
+        </MainLayout>
+    );
 };
 
 export default ExpensesPage;

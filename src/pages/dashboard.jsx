@@ -1,11 +1,11 @@
 import Card from "../components/Elements/Card";
 import MainLayout from "../components/Layouts/MainLayout";
-import CardBill from "../components/Fragments/dashboard/CardBill2";
-import CardExpenseBreakdown from "../components/Fragments/dashboard/CardExpenseBreakdown2";
-import CardTransaction from "../components/Fragments/dashboard/CardTransaction2.jsx";
-import CardBalance from "../components/Fragments/dashboard/CardBalance";
-import CardStatistic from "../components/Fragments/dashboard/CardStatistic";
-import CardGoal from "../components/Fragments/dashboard/CardGoal";
+import CardBill from "../components/Fragments/Dashboard/CardBill";
+import CardExpenseBreakdown from "../components/Fragments/Dashboard/CardExpenseBreakdown.jsx";
+import CardTransaction from "../components/Fragments/Dashboard/CardTransaction.jsx";
+import CardBalance from "../components/Fragments/Dashboard/CardBalance";
+import CardStatistic from "../components/Fragments/Dashboard/CardStatistic";
+import CardGoal from "../components/Fragments/Dashboard/CardGoal";
 
 const DashboardPage = () => {
   return (
@@ -13,10 +13,10 @@ const DashboardPage = () => {
       {/* top content start*/}
       <div className="md:grid md:grid-cols-3 md:gap-x-6">
         <CardBalance />
-        <CardGoal/>
+        <CardGoal />
         <CardBill />
         <CardTransaction />
-        <CardStatistic/>
+        <CardStatistic />
         <CardExpenseBreakdown />
       </div>
       {/* bottom content end*/}
