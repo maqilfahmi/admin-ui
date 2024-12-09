@@ -1,11 +1,11 @@
 import Card from "../components/Elements/Card";
 import MainLayout from "../components/Layouts/MainLayout";
 import CardBill from "../components/Fragments/dashboard/CardBill";
-import CardExpenseBreakdown from "../components/Fragments/Dashboard/CardExpenseBreakdown.jsx";
-import CardTransaction from "../components/Fragments/Dashboard/CardTransaction.jsx";
-import CardBalance from "../components/Fragments/Dashboard/CardBalance";
-import CardStatistic from "../components/Fragments/Dashboard/CardStatistic";
-import CardGoal from "../components/Fragments/Dashboard/CardGoal";
+import CardExpenseBreakdown from "../components/Fragments/dashboard/CardExpenseBreakdown.jsx";
+import CardTransaction from "../components/Fragments/dashboard/CardTransaction.jsx";
+import CardBalance from "../components/Fragments/dashboard/CardBalance";
+import CardStatistic from "../components/Fragments/dashboard/CardStatistic";
+import CardGoal from "../components/Fragments/dashboard/CardGoal";
 
 const DashboardPage = () => {
   return (
