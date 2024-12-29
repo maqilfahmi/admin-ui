@@ -1,4 +1,7 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// src/App.jsx
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext"; // Import AuthContext
 import SignInPage from "./pages/signIn";
 import SignUpPage from "./pages/signUp";
 import ErrorRoute from "./pages/errorRoute";
@@ -9,10 +12,17 @@ import GoalPage from "./pages/goal";
 import ExpensePage from "./pages/expense";
 
 const App = () => {
+  const { isLoggedIn } = useContext(AuthContext);
+
+  // Fungsi untuk memastikan halaman hanya bisa diakses oleh pengguna yang sudah login
+  const RequireAuth = ({ children }) => {
+    return isLoggedIn ? children : <Navigate to="/login" />;
+  };
+
   const myRouter = createBrowserRouter([
     {
       path: "/",
-      element: <DashboardPage />,
+      element: <RequireAuth><DashboardPage /></RequireAuth>,
       errorElement: <ErrorRoute />,
     },
     {
@@ -41,11 +51,7 @@ const App = () => {
     },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={myRouter} />
-    </>
-  );
+  return <RouterProvider router={myRouter} />;
 };
 
 export default App;
