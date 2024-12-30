@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { goals } from "../../../data/goals";
 import Card from "../../Elements/Card";
 import { Icon } from "../../Elements/Icon";
@@ -7,7 +6,7 @@ import CompositionExample from "../../Elements/GaugeChart";
 
 const CardGoal = () => {
   const [goals, setGoals] = useState({presentAmount: 0, targetAmount: 0});
-  const chartValue = goals.presentAmount * 100 / goals.targetAmount;
+  const value = goals.targetAmount * 100 / goals.presentAmount;
   const getData = async () => {
     
     try {
@@ -22,11 +21,28 @@ const CardGoal = () => {
         }
       );
 
-      console.log(response);
+      setGoals({
+        presentAmount: response.data.datap[0].present_amount,
+        targetAmount: response.data.data[0].target_amount,
+      });
     } catch (error) {
-      if (error.response) {
-        console.log(error.response);
-      }
+       if (error.response) {
+  if (error.response.status == 401) {
+    setOpen(true);
+    setMsg({
+      severity: "error",
+      desc: "Session Has Expired. Please Login.",
+    });
+
+    setIsLoggedIn(false);
+    setName("");
+
+    localStorage.removeItem("refreshToken");
+    navigate("/login");
+  } else {
+    console.log(error.response);
+  }
+}
     }
   }; 
 
@@ -79,7 +95,7 @@ const CardGoal = () => {
               </div>
             </div>
             <div className="ms-4 text-center">
-              <CompositionExample desc={chartValue} />
+              <CompositionExample desc={value} />
               <div className="flex justify-between">
                 <span className="text-gray-03">$0</span>
                 <span className="font-bold text-2xl">12K</span>

@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useContext } from "react";
 import CustomizedSnackbars from "../Elements/SnackBar";
-import { jwtDecode } from "jwt-decode";
+import jwtDecode  from "jwt-decode";
 import { useNavigate } from "react-router-dom"; 
 import { AuthContext } from "../../context/authContext";
 import { NotifContext } from "../../context/notifContext";
@@ -18,9 +18,9 @@ const FormSignIn = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },  // Menambahkan isValid dari react-hook-form
   } = useForm({
-    mode: "onChange",
+    mode: "onChange",  // Menggunakan mode onChange agar validasi langsung dievaluasi
   });
 
   const onErrors = (errors) => console.error(errors);
@@ -102,7 +102,11 @@ const FormSignIn = () => {
           register={register("status")}
         />
       </div>
-      <Button variant="bg-primary w-full text-white" type="submit">
+      <Button 
+        variant={`${!isValid ? "bg-gray-05" : "bg-primary zoom-in"} w-full text-white`}  // Menggunakan isValid dari react-hook-form
+        type="submit"
+        disabled={!isValid}  // Menonaktifkan tombol jika form tidak valid
+      >
         Login
       </Button>
     </form>
