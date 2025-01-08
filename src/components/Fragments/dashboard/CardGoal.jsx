@@ -3,12 +3,14 @@ import { goals } from "../../../data/goals";
 import Card from "../../Elements/Card";
 import { Icon } from "../../Elements/Icon";
 import CompositionExample from "../../Elements/GaugeChart";
+import axios from "axios";
 
 const CardGoal = () => {
-  const [goals, setGoals] = useState({presentAmount: 0, targetAmount: 0});
-  const value = goals.targetAmount * 100 / goals.presentAmount;
+  const [ goals, setGoals] = useState ({ presentAmount: 0, targetAmount:0 });
+
+  const value = (goals.targetAmount * 100) / goals.presentAmount;
+
   const getData = async () => {
-    
     try {
       const refreshToken = localStorage.getItem("refreshToken");
 
@@ -22,33 +24,33 @@ const CardGoal = () => {
       );
 
       setGoals({
-        presentAmount: response.data.datap[0].present_amount,
+        presentAmount: response.data.data[0].present_amount,
         targetAmount: response.data.data[0].target_amount,
       });
     } catch (error) {
-       if (error.response) {
-  if (error.response.status == 401) {
-    setOpen(true);
-    setMsg({
-      severity: "error",
-      desc: "Session Has Expired. Please Login.",
-    });
-
-    setIsLoggedIn(false);
-    setName("");
-
-    localStorage.removeItem("refreshToken");
-    navigate("/login");
-  } else {
-    console.log(error.response);
-  }
-}
+      if (error.response) {
+        if (error.response.status == 401) {
+          setOpen(true);
+          setMsg({
+            severity: "error",
+            desc: "Session Has Expired. Please Login.",
+          });
+      
+          setIsLoggedIn(false);
+          setName("");
+      
+          localStorage.removeItem("refreshToken");
+          navigate("/login");
+        } else {
+          console.log(error.response);
+        }
+      }
     }
   }; 
 
   useEffect(() => {
-  getData();
-}, []);
+    getData();
+  }, []);
 
   return (
     <Card

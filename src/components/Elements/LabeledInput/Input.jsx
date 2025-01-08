@@ -1,5 +1,5 @@
-const Input = ({ name, type, placeholder, register}) => {
-  const variant = "bg-special-mainBg border border-gray-03";
+const Input = ({ name, type, placeholder, register }) =>{
+  const variant= "bg-special-mainBg border border-gray-03";
 
   return (
     <input

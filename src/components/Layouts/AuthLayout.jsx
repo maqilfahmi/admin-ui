@@ -2,28 +2,39 @@ import { Link } from "react-router-dom";
 import Logo from "../Elements/Logo";
 import { useContext } from "react";
 import { NotifContext } from "../../context/notifContext";
+import { ColorModeContext } from "../../context/ColorModeContext";
 import SimpleBackdrop from "../Elements/Backdrop";
 import CustomizedSnackbars from "../Elements/SnackBar";
+import * as motion from "motion/react-client";
 
 const AuthLayout = (props) => {
   const { children, type } = props;
-  const {msg, setMsg, open, setOpen, isLoading, setIsLoading} = useContext(NotifContext);
+  const { msg, setMsg, open, setOpen, isLoading, setIsLoading } = useContext(NotifContext);
+  const { isDarkMode, toggleColorMode } = useContext(ColorModeContext);
 
   return (
-    <div className="flex justify-center min-h-screen items-center bg-special-mainBg">
-      {/* container start */}
-      <div className="w-full max-w-sm">
-        {isLoading && (
+    <div className={`flex justify-center min-h-screen items-center ${isDarkMode ? 'bg-black text-white' : 'bg-special-mainBg text-black'}`}>
+      {isLoading && (
           <SimpleBackdrop isLoading={isLoading} setIsLoading={setIsLoading}/>
         )}
-        {msg &&(
+        { msg && (
           <CustomizedSnackbars
-          severity={msg.severity}
-          message={msg.desc}
-          open={open}
-          setOpen={setOpen}
+            severity={msg.severity}
+            message={msg.desc}
+            open={open}
+            setOpen={setOpen}
           />
         )}
+      {/* container start */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          duration: 0.4,
+          scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+        }}
+      className="w-full max-w-sm"
+      >
         {/* logo start */}
         <div className="mb-8">
           <Logo />
@@ -52,13 +63,13 @@ const AuthLayout = (props) => {
         {type != "forgot" && (
           <>
             {/* teks start */}
-            <div className="my-9 px-7 flex justify-center text-xs text-gray-03 items-center flex-col static">
-              <div className="border border-gray-05 w-full"></div>
-              <div className="px-2 bg-special-mainBg absolute">
-                {" "}
+            <div className="my-9 px-7 flex justify-center text-xs items-center relative">
+              <div className={`border w-full ${isDarkMode ? 'border-gray-600' : 'border-gray-300'}`}></div>
+              <div className={`px-2 absolute ${isDarkMode ? 'bg-black text-gray-400' : 'bg-special-mainBg text-gray-600'}`}>
                 or {type} with
               </div>
             </div>
+            {/* teks end */}
             {/* teks end */}
             {/* sign in with google start */}
             <div className="mb-8">
@@ -172,7 +183,15 @@ const AuthLayout = (props) => {
           )}
         </div>
         {/* link end */}
-      </div>
+
+        {/* toggle mode start */}
+        <div className="flex justify-center mt-4">
+          <button onClick={toggleColorMode} className="p-2">
+            {isDarkMode ? '🌞' : '🌙'}
+          </button>
+        </div>
+        {/* toggle mode end */}
+      </motion.div>
       {/* container end */}
     </div>
   );

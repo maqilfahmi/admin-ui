@@ -1,20 +1,22 @@
-// src/main.jsx
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
-import { ThemeContextProvider } from './context/themeContext.jsx';
-import { AuthContextProvider } from './context/authContext.jsx';  // Pastikan ini benar
-import { NotifContextProvider } from './context/notifContext.jsx';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { ThemeContextProvider } from "./context/themeContext.jsx";
+import { AuthContextProvider } from "./context/authContext.jsx";
+import { NotifContextProvider } from "./context/notifContext.jsx";
+import { ColorModeProvider } from "./context/ColorModeContext.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthContextProvider>  {/* Membungkus dengan AuthContextProvider */}
+    <AuthContextProvider>
       <NotifContextProvider>
         <ThemeContextProvider>
-          <App />
+          <ColorModeProvider>
+            <App />
+          </ColorModeProvider>
         </ThemeContextProvider>
       </NotifContextProvider>
     </AuthContextProvider>
-  </StrictMode>
+  </StrictMode>,
 );

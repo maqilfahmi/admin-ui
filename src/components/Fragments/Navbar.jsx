@@ -1,14 +1,13 @@
-// src/components/Navbar.jsx
 import { NavLink, useNavigate } from "react-router-dom";
 import { Icon } from "../Elements/Icon";
 import Logo from "../Elements/Logo";
-import { useAuth } from "../../context/authContext"; // Mengimpor useAuth dari authContext
+import { useContext } from "react";
+import { ThemeContext } from "../../context/themeContext";
 import axios from "axios";
+import { AuthContext } from "../../context/authContext";
 import { NotifContext } from "../../context/notifContext";
-import { useState, useContext } from "react";
 
 const Navbar = () => {
-
   const themes = [
     { name: "theme-green", bgcolor: "bg-[#299D91]", color: "#299D91" },
     { name: "theme-blue", bgcolor: "bg-[#1E90FF]", color: "#1E90FF" },
@@ -16,10 +15,11 @@ const Navbar = () => {
     { name: "theme-pink", bgcolor: "bg-[#DB7093]", color: "#DB7093" },
     { name: "theme-brown", bgcolor: "bg-[#8B4513]", color: "#8B4513" },
   ];
+  
+  const { theme, setTheme} = useContext(ThemeContext);
+  const { setIsLoggedIn, setName , name } = useContext(AuthContext);
+  const { setMsg, setOpen, setIsLoading } = useContext(NotifContext);
 
-  const [theme, setTheme] = useState(themes[0]);
-  const { setLoggedIn, setName, name } = useAuth();  // Menggunakan useAuth untuk mengambil state dari AuthContext
-  const { setMsg, setOpen, setIsLoading } = useContext(NotifContext); // Menggunakan NotifContext untuk notifikasi
   const navigate = useNavigate();
 
   const menus = [
@@ -78,26 +78,21 @@ const Navbar = () => {
         },
       });
 
-      setIsLoading(false);
       setOpen(true);
-      setMsg({ severity: "success", desc: "Logout Success" });
-
-      navigate("/login");
+      setMsg({ severity : "success", desc: "Logout Success"});
     } catch (error) {
-      setIsLoading(false);
-
       if (error.response) {
         setOpen(true);
         setMsg({ severity: "error", desc: error.response.data.msg });
       }
     }
+  
+  setIsLoggedIn(false);
+  setName("");
+  setIsLoading(false);
 
-    setLoggedIn(false);
-    setName("");
-    setIsLoading(false);
-
-    localStorage.removeItem('refreshToken');
-    navigate("/login");
+  localStorage.removeItem("refreshToken");
+  navigate("/login");
   };
 
   return (
@@ -113,8 +108,8 @@ const Navbar = () => {
               to={menu.link}
               className={({ isActive }) =>
                 isActive
-                  ? "flex bg-primary text-white font-bold px-4 py-3 rounded-sm zoom-in"
-                  : "flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-sm zoom-in"
+                  ? "flex bg-primary text-white font-bold px-4 py-3 rounded-md zoom-in"
+                  : "flex hover:bg-special-bg3 hover:text-white px-4 py-3 rounded-md zoom-in"
               }
             >
               <div className="mx-auto sm:mx-0">{menu.icon}</div>
@@ -126,11 +121,11 @@ const Navbar = () => {
           Themes
           {themes.map((t) => (
             <div
-              key={t.name}
-              className={`${t.bgcolor} md:w-6 h-6 rounded-md cursor-pointer mb-2 zoom-in`}
-              onClick={() => setTheme(t)}
-            ></div>
-          ))}
+                key={t.name}
+                className={`${t.bgcolor} md:w-6 h-6 rounded-md cursor-pointer mb-2 zoom-in`}
+                onClick={() => setTheme(t)}
+        ></div>
+        ))}
         </div>
         <div>
           <NavLink
