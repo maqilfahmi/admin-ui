@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { ColorModeContext } from "../context/ColorModeContext"; // Import Context
 import MainLayout from "../components/Layouts/MainLayout";
-import CardBalance from "../components/Fragments/Dashboard/CardBalance";
+import CardBalance from "../components/Fragments/dashboard/CardBalance";
 import CardGoal from "../components/Fragments/dashboard/CardGoal";
 import CardBill from "../components/Fragments/dashboard/CardBill";
-import CardTransaction from "../components/Fragments/Dashboard/CardTransaction";
-import CardStatistic from "../components/Fragments/Dashboard/CardStatistic";
-import CardExpenseBreakdown from "../components/Fragments/Dashboard/CardExpenseBreakdown";
+import CardTransaction from "../components/Fragments/dashboard/CardTransaction";
+import CardStatistic from "../components/Fragments/dashboard/CardStatistic";
+import CardExpenseBreakdown from "../components/Fragments/dashboard/CardExpenseBreakdown";
 import axios from "axios"; // Import axios untuk fetch data
 
 const DashboardPage = () => {
