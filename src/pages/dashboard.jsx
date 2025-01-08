@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { ColorModeContext } from "../context/ColorModeContext"; // Import Context
 import MainLayout from "../components/Layouts/MainLayout";
 import CardBalance from "../components/Fragments/Dashboard/CardBalance";
-import CardGoal from "../components/Fragments/Dashboard/CardGoal";
-import CardBill from "../components/Fragments/Dashboard/CardBill";
+import CardGoal from "../components/Fragments/dashboard/CardGoal";
+import CardBill from "../components/Fragments/dashboard/CardBill";
 import CardTransaction from "../components/Fragments/Dashboard/CardTransaction";
 import CardStatistic from "../components/Fragments/Dashboard/CardStatistic";
 import CardExpenseBreakdown from "../components/Fragments/Dashboard/CardExpenseBreakdown";
