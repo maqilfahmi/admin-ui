@@ -21,11 +21,19 @@ const DashboardPage = () => {
         "https://jwt-auth-eight-neon.vercel.app/bills",
         {
           headers: {
-            Authorization: 'Bearer ${token}', // Sertakan token dalam header
+            Authorization: `Bearer ${token}`, // Sertakan token dalam header
           },
         }
       );
-      setBills(response.data.data); // Simpan data bills ke state
+
+      // Validasi data bills
+      const validBills = response.data.data.map(bill => ({
+        ...bill,
+        // Misalkan data yang perlu dicek adalah nilai tagihan (misalnya amount)
+        amount: isNaN(bill.amount) ? 0 : bill.amount,
+      }));
+
+      setBills(validBills); // Simpan data bills yang sudah divalidasi ke state
     } catch (error) {
       console.error("Error fetching bills:", error.response || error.message); // Log error jika ada
     }

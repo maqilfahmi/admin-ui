@@ -35,3 +35,17 @@ html {
   .zoom-in {
     @apply duration-500 hover:translate-y-1 hover:scale-110;
   }
+  .loader {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
